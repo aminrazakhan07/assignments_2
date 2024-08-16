@@ -1,4 +1,6 @@
-// ignore_for_file: unused_local_variable, equal_keys_in_map
+// // ignore_for_file: unused_local_variable, equal_keys_in_map
+
+// ignore_for_file: equal_keys_in_map, unused_import
 
 import 'dart:ffi';
 
@@ -10,7 +12,7 @@ void main() {
     'Danish',
     'Ejaz',
     'Faizan',
-    'Goree',
+    'Ghoree',
     'Hadee',
     'Irfan',
     'Jamal',
@@ -88,14 +90,14 @@ void main() {
       'language': 'urdu',
     },
     'Afghanistan': {
-      'capital': 'qabool',
-      'currency': 'afgani',
-      'language': 'afgan',
+      'capital': 'Qabool',
+      'currency': 'Afgani',
+      'language': 'Afgan',
     },
     'Chin': {
       'capital': 'beijing',
       'currency': 'yen',
-      'language': 'chinis',
+      'language': 'Chinas',
     },
     'Finland': {
       'capital': 'helsinki',
@@ -149,7 +151,7 @@ void main() {
   print('$expenses \n');
 
 // ///// Q8
-  List<Map<String, dynamic>> userEligibil = [
+  List<Map<String, dynamic>> userEligible = [
     {
       'name': 'Ali',
       'eligible': true,
@@ -161,34 +163,68 @@ void main() {
       'eligible': true,
     }
   ];
-  userEligibil.removeWhere((user) => user['eligibles'] == true);
-  print(userEligibil);
+  userEligible.removeWhere((user) => user['eligibles'] == true);
+  print(userEligible);
 
   /// Q9:
-  List<int> numbers2 = [4, 11, 12, 13, 25, 1, 8, 6, 7, 9, 2];
-  int maxValue =
-      numbers2.reduce((current, next) => current > next ? current : next);
+  List<int> numbers2 = [4, 11, 12, 13, 27, 1, 8, 6, 7, 9, 2];
+  int maxValue = numbers2.reduce((c, n) => c > n ? c : n);
   print(maxValue);
 
   //// Q10:
-  List<String> orginalList = [
+  List<String> originalList = [
     'apple',
     'banana',
     'apple',
     'orange',
     'banana',
     'mango',
-    'grapes',
+    'grapes'
   ];
 
   List<String> uniqueList = [];
 
-  for (var item in orginalList) {
+  for (var item in originalList) {
     if (!uniqueList.contains(item)) {
       uniqueList.add(item);
     }
   }
-  print('Oraginal list: $orginalList');
+  print('Original list: $originalList');
   print('List without duplicates: $uniqueList');
-  ///// main function
+
+//// Q11:
+
+  List originalList1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  int n = 2;
+  if (n > originalList1.length) {
+    n = originalList1.length;
+  }
+  List newList = originalList1.sublist(0, n);
+
+  /// 2nd
+  // List newList = [];
+  // for (int i = 0; i < n && i < originalList.length; i++) {
+  //   newList.add(originalList[i]);
+  // }
+
+// ////// 3rt
+//   List newList = originalList.where((e) => e <= n).toList();
+// //// 4th
+//   List newList = originalList.takeWhile((e) => e <= n).toList();
+//   /// 5th
+//   List newList = [originalList.take(n)];
+//   //// [...originalList.take(n)] ...optional
+  ////// 1 to 5 print()
+  print('Original list: $originalList');
+  print('List without duplicates: $newList');
+
+//// Q12:
+  List orangeValue = ['apple', 'orange', 'banana', 'grapes'];
+  List reversList = [orangeValue.reversed]; ///// = list.from([...]) optional
+  print('\nOriginal list: $orangeValue');
+  print('Reversed list: $reversList \n');
+
+  //// Q13:
+
+/////// main function
 }
