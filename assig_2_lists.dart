@@ -1,11 +1,13 @@
-// // ignore_for_file: unused_local_variable, equal_keys_in_map
+// // // ignore_for_file: unused_local_variable, equal_keys_in_map
 
-// ignore_for_file: equal_keys_in_map, unused_import
+// // ignore_for_file: equal_keys_in_map, unused_import
 
-import 'dart:ffi';
+// import 'dart:ffi';
+
+import 'dart:io';
 
 void main() {
-//// Q1:
+// //// Q1:
   List<String> namelist = [
     'Ali',
     'Bilal',
@@ -16,7 +18,7 @@ void main() {
     'Hadee',
     'Irfan',
     'Jamal',
-    'Kamran'
+    'Kamran',
   ];
   print('Students Name:');
   for (var name in namelist) {
@@ -34,19 +36,19 @@ void main() {
     'saturday',
     'sunday'
   ];
-  days.add('Monday');
-  days.add('tuesday');
-  days.add('wednesday');
-  days.add('thursday');
-  days.add('friday');
-  days.add('saturday');
-  days.add('sunday');
+  // days.add('Monday');
+  // days.add('tuesday');
+  // days.add('wednesday');
+  // days.add('thursday');
+  // days.add('friday');
+  // days.add('saturday');
+  // days.add('sunday');
   for (var day in days) {
     print('Adding days ' + day);
   }
 
 // Q3:
-  List<String> days2 = [
+  List<String> days3 = [
     'monday',
     'tuesday',
     'wednesday',
@@ -56,20 +58,29 @@ void main() {
     'sunday'
   ];
   while (days.isNotEmpty) {
-    String removedDays = days2.removeLast();
+    String removedDays = days.removeLast();
     // print('Removed Day: $removedDays');
     print('Removed:' + removedDays);
-    print('Removing: $days');
+    // print('Removing: $days');
   }
 
-// Q4:
+  if (days != null) {
+    for (var newDays in days) {
+      days.remove(newDays);
+      print('$newDays');
+    }
+  } else {
+    print('Not Removed');
+  }
+
+// // Q4:
   List<int> numbers = [4, 5, 2, 6, 7, 8, 9, 11];
-  int smallest =
-      numbers.reduce((value, element) => value < element ? value : element);
   int largest =
       numbers.reduce((value, element) => value > element ? value : element);
-  print('Smallest number $smallest');
+  int smallest =
+      numbers.reduce((value, element) => value < element ? value : element);
   print('Largest number $largest');
+  print('Smallest number $smallest');
 
   // Q5:
   Map<String, String> contactInfo = {
@@ -82,7 +93,6 @@ void main() {
   print('Key with length 4: $keysWithLength');
 
   /// Q6:
-
   Map<String, Map<String, String>> world = {
     'pakistan': {
       'capital': 'Islamabad',
@@ -240,16 +250,16 @@ void main() {
     }
   });
   //// 3nd method
-  emptyList = originalList.toSet().toList();
+  emptyList = originalList13.toSet().toList();
   emptyList.sort();
   // 4th method
-  for (var i = 0; i < originalList.length; i++) {
-    if (!emptyList.contains(originalList[i])) {
-      emptyList.add(originalList[i]);
+  for (var i = 0; i < originalList13.length; i++) {
+    if (!emptyList.contains(originalList13[i])) {
+      emptyList.add(originalList13[i]);
     }
   }
 
-  print('Original list: $originalList');
+  print('Original list: $originalList13');
   print('empty list: $emptyList');
 
 //// Q14
@@ -308,7 +318,64 @@ void main() {
     print('No match');
   }
 
-  //// Q21:
+//   //// Q21:
+  Map<String, dynamic> user = {
+    'name': 'Ali',
+    'isAdmin': true,
+    'isActive': true
+  };
+  if (user['isAdmin'] == true && user['isActive']) {
+    print('Admin Active:');
+  } else {
+    print('Not Active:');
+  }
+  // Q22:
+  Map<String, dynamic> shoppingCart = {'Apple': 5, 'Banana': 4, 'Orange': 3};
+  if (shoppingCart.containsKey('Apple')) {
+    print('Product found:');
+  } else {
+    print('product not found:');
+  }
 
-/////// main function
+  // 2nd method
+  Map<String, dynamic> shoppingCart2 = {'Apple': 5, 'Banana': 4, 'Mango': 3};
+  stdout.write('Enter the product name \n');
+  String? userProduct = stdin.readLineSync();
+  if (userProduct != null && shoppingCart2.containsKey(userProduct)) {
+    int quantity = shoppingCart2[userProduct]!;
+    print('Product found: $userProduct, Quantity: $quantity');
+  } else {
+    print('product not found');
+  }
+
+// More nested mapping
+  Map<String, Map<String, dynamic>> shoppingCartn = {
+    'Apple': {'price': 'Rs.220 kg', 'quantity': 500, 'quality': 'height'},
+    'Banana': {'price': 'Rs.150 kg', 'quantity': 200, 'quality': 'medium'},
+    'Mango': {'price': 'Rs.250 kg', 'quantity': 400, 'quality': 'height'},
+    'grape': {'price': 100, 'weight': 'kg', 'quantity': 100, 'quality': 'low'}
+  };
+
+  String? userInput = stdin.readLineSync();
+
+  if (userInput != null && shoppingCartn.containsKey(userInput)) {
+    var productDetail = shoppingCart[userInput]!;
+    var price = productDetail['price'];
+    int priceInt = productDetail['price'];
+    int quantity = productDetail['quantity'];
+    var quality = productDetail['quality'];
+    String weight = productDetail['weight'];
+
+    print('Product: $userInput');
+    print('price: $price');
+    print('Quantity: $quantity');
+    print('Quality: $quality');
+    print('Price: \Rs ${priceInt.toStringAsFixed(0)} $weight');
+    // print(
+    //     'Search product: "$userInput" Price: $price, Quantity: $quantity, Quality: $quality');
+  } else {
+    print('Empty');
+  }
+
+// /////// main function
 }
