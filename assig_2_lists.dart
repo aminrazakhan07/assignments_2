@@ -160,7 +160,7 @@ void main() {
       'name': 'Danish',
       'eligible': false,
       'name': 'Ejaz',
-      'eligible': true,
+      'eligible': true
     }
   ];
   userEligible.removeWhere((user) => user['eligibles'] == true);
